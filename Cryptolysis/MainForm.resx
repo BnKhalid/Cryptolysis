@@ -121,6 +121,10 @@
     <value>RSA (Rivest–Shamir–Adleman) is an asymmetric cryptography algorithm. Asymmetric means it uses two different keys: a public key and a private key. The public key is shared publicly, while the private key must remain secret and confidential.
 </value>
   </data>
+  <data name="textBox8.Text" xml:space="preserve">
+    <value>RSA (Rivest–Shamir–Adleman) is an asymmetric cryptography algorithm. Asymmetric means it uses two different keys: a public key and a private key. The public key is shared publicly, while the private key must remain secret and confidential.
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

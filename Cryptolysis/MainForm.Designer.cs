@@ -52,22 +52,46 @@
             label2 = new Label();
             label1 = new Label();
             tabPage2 = new TabPage();
-            tabPage3 = new TabPage();
             tabPage4 = new TabPage();
             tabPage5 = new TabPage();
             tabPage6 = new TabPage();
+            groupBox4 = new GroupBox();
+            DES_Encrypt = new Button();
+            DES_RndKey = new Button();
+            DES_RndPlain = new Button();
+            DES_CipherText = new TextBox();
+            DES_KeyTextBox = new TextBox();
+            DES_PlainText = new TextBox();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            groupBox5 = new GroupBox();
+            SDES_Encrypt = new Button();
+            SDES_RndKey = new Button();
+            SDES_RndPlain = new Button();
+            SDES_CipherText = new TextBox();
+            SDES_KeyTextBox = new TextBox();
+            SDES_PlainText = new TextBox();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            textBox8 = new TextBox();
+            groupBox6 = new GroupBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            groupBox4.SuspendLayout();
+            groupBox5.SuspendLayout();
+            groupBox6.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
-            tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage6);
@@ -313,21 +337,15 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(groupBox6);
+            tabPage2.Controls.Add(groupBox5);
+            tabPage2.Controls.Add(groupBox4);
             tabPage2.Location = new Point(4, 22);
             tabPage2.Name = "tabPage2";
             tabPage2.Size = new Size(353, 461);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "DES";
             tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            tabPage3.Location = new Point(4, 22);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(353, 461);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "SDES";
-            tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -356,6 +374,238 @@
             tabPage6.Text = "Diffie-Hellman";
             tabPage6.UseVisualStyleBackColor = true;
             // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(DES_Encrypt);
+            groupBox4.Controls.Add(DES_RndKey);
+            groupBox4.Controls.Add(DES_RndPlain);
+            groupBox4.Controls.Add(DES_CipherText);
+            groupBox4.Controls.Add(DES_KeyTextBox);
+            groupBox4.Controls.Add(DES_PlainText);
+            groupBox4.Controls.Add(label7);
+            groupBox4.Controls.Add(label8);
+            groupBox4.Controls.Add(label9);
+            groupBox4.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox4.Location = new Point(9, 3);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new Size(334, 153);
+            groupBox4.TabIndex = 2;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "DES Encryption (64-bit)";
+            // 
+            // DES_Encrypt
+            // 
+            DES_Encrypt.Enabled = false;
+            DES_Encrypt.Location = new Point(242, 115);
+            DES_Encrypt.Name = "DES_Encrypt";
+            DES_Encrypt.Size = new Size(75, 23);
+            DES_Encrypt.TabIndex = 5;
+            DES_Encrypt.Text = "Encrypt";
+            DES_Encrypt.UseVisualStyleBackColor = true;
+            // 
+            // DES_RndKey
+            // 
+            DES_RndKey.Enabled = false;
+            DES_RndKey.Location = new Point(135, 115);
+            DES_RndKey.Name = "DES_RndKey";
+            DES_RndKey.Size = new Size(95, 23);
+            DES_RndKey.TabIndex = 4;
+            DES_RndKey.Text = "Random Key";
+            DES_RndKey.UseVisualStyleBackColor = true;
+            // 
+            // DES_RndPlain
+            // 
+            DES_RndPlain.Location = new Point(18, 115);
+            DES_RndPlain.Name = "DES_RndPlain";
+            DES_RndPlain.Size = new Size(105, 23);
+            DES_RndPlain.TabIndex = 3;
+            DES_RndPlain.Text = "Random Plain";
+            DES_RndPlain.UseVisualStyleBackColor = true;
+            // 
+            // DES_CipherText
+            // 
+            DES_CipherText.Cursor = Cursors.IBeam;
+            DES_CipherText.Location = new Point(193, 84);
+            DES_CipherText.Name = "DES_CipherText";
+            DES_CipherText.ReadOnly = true;
+            DES_CipherText.Size = new Size(121, 22);
+            DES_CipherText.TabIndex = 2;
+            // 
+            // DES_KeyTextBox
+            // 
+            DES_KeyTextBox.Cursor = Cursors.IBeam;
+            DES_KeyTextBox.Location = new Point(193, 56);
+            DES_KeyTextBox.Name = "DES_KeyTextBox";
+            DES_KeyTextBox.ReadOnly = true;
+            DES_KeyTextBox.Size = new Size(121, 22);
+            DES_KeyTextBox.TabIndex = 1;
+            // 
+            // DES_PlainText
+            // 
+            DES_PlainText.Cursor = Cursors.IBeam;
+            DES_PlainText.Location = new Point(193, 27);
+            DES_PlainText.Name = "DES_PlainText";
+            DES_PlainText.ReadOnly = true;
+            DES_PlainText.Size = new Size(121, 22);
+            DES_PlainText.TabIndex = 0;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(20, 87);
+            label7.Name = "label7";
+            label7.Size = new Size(75, 16);
+            label7.TabIndex = 2;
+            label7.Text = "Cipher Text";
+            label7.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(20, 59);
+            label8.Name = "label8";
+            label8.Size = new Size(30, 16);
+            label8.TabIndex = 1;
+            label8.Text = "Key";
+            label8.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(20, 30);
+            label9.Name = "label9";
+            label9.Size = new Size(66, 16);
+            label9.TabIndex = 0;
+            label9.Text = "Plain Text";
+            label9.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(SDES_Encrypt);
+            groupBox5.Controls.Add(SDES_RndKey);
+            groupBox5.Controls.Add(SDES_RndPlain);
+            groupBox5.Controls.Add(SDES_CipherText);
+            groupBox5.Controls.Add(SDES_KeyTextBox);
+            groupBox5.Controls.Add(SDES_PlainText);
+            groupBox5.Controls.Add(label10);
+            groupBox5.Controls.Add(label11);
+            groupBox5.Controls.Add(label12);
+            groupBox5.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox5.Location = new Point(9, 176);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(334, 153);
+            groupBox5.TabIndex = 3;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "SDES Encryption (8-bit)";
+            // 
+            // SDES_Encrypt
+            // 
+            SDES_Encrypt.Enabled = false;
+            SDES_Encrypt.Location = new Point(242, 115);
+            SDES_Encrypt.Name = "SDES_Encrypt";
+            SDES_Encrypt.Size = new Size(75, 23);
+            SDES_Encrypt.TabIndex = 5;
+            SDES_Encrypt.Text = "Encrypt";
+            SDES_Encrypt.UseVisualStyleBackColor = true;
+            // 
+            // SDES_RndKey
+            // 
+            SDES_RndKey.Enabled = false;
+            SDES_RndKey.Location = new Point(135, 115);
+            SDES_RndKey.Name = "SDES_RndKey";
+            SDES_RndKey.Size = new Size(95, 23);
+            SDES_RndKey.TabIndex = 4;
+            SDES_RndKey.Text = "Random Key";
+            SDES_RndKey.UseVisualStyleBackColor = true;
+            // 
+            // SDES_RndPlain
+            // 
+            SDES_RndPlain.Location = new Point(18, 115);
+            SDES_RndPlain.Name = "SDES_RndPlain";
+            SDES_RndPlain.Size = new Size(105, 23);
+            SDES_RndPlain.TabIndex = 3;
+            SDES_RndPlain.Text = "Random Plain";
+            SDES_RndPlain.UseVisualStyleBackColor = true;
+            // 
+            // SDES_CipherText
+            // 
+            SDES_CipherText.Cursor = Cursors.IBeam;
+            SDES_CipherText.Location = new Point(193, 84);
+            SDES_CipherText.Name = "SDES_CipherText";
+            SDES_CipherText.ReadOnly = true;
+            SDES_CipherText.Size = new Size(121, 22);
+            SDES_CipherText.TabIndex = 2;
+            // 
+            // SDES_KeyTextBox
+            // 
+            SDES_KeyTextBox.Cursor = Cursors.IBeam;
+            SDES_KeyTextBox.Location = new Point(193, 56);
+            SDES_KeyTextBox.Name = "SDES_KeyTextBox";
+            SDES_KeyTextBox.ReadOnly = true;
+            SDES_KeyTextBox.Size = new Size(121, 22);
+            SDES_KeyTextBox.TabIndex = 1;
+            // 
+            // SDES_PlainText
+            // 
+            SDES_PlainText.Cursor = Cursors.IBeam;
+            SDES_PlainText.Location = new Point(193, 27);
+            SDES_PlainText.Name = "SDES_PlainText";
+            SDES_PlainText.ReadOnly = true;
+            SDES_PlainText.Size = new Size(121, 22);
+            SDES_PlainText.TabIndex = 0;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(20, 87);
+            label10.Name = "label10";
+            label10.Size = new Size(75, 16);
+            label10.TabIndex = 2;
+            label10.Text = "Cipher Text";
+            label10.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(20, 59);
+            label11.Name = "label11";
+            label11.Size = new Size(30, 16);
+            label11.TabIndex = 1;
+            label11.Text = "Key";
+            label11.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(20, 30);
+            label12.Name = "label12";
+            label12.Size = new Size(66, 16);
+            label12.TabIndex = 0;
+            label12.Text = "Plain Text";
+            label12.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // textBox8
+            // 
+            textBox8.BorderStyle = BorderStyle.None;
+            textBox8.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textBox8.Location = new Point(7, 19);
+            textBox8.Multiline = true;
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(321, 83);
+            textBox8.TabIndex = 0;
+            textBox8.Text = resources.GetString("textBox8.Text");
+            // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(textBox8);
+            groupBox6.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox6.Location = new Point(9, 349);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(334, 108);
+            groupBox6.TabIndex = 4;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Description";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
@@ -378,6 +628,13 @@
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -386,7 +643,6 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private TabPage tabPage3;
         private TabPage tabPage4;
         private TabPage tabPage5;
         private TabPage tabPage6;
@@ -410,5 +666,27 @@
         private Button RSA_Encrypt;
         private GroupBox groupBox3;
         private TextBox textBox1;
+        private GroupBox groupBox5;
+        private Button SDES_Encrypt;
+        private Button SDES_RndKey;
+        private Button SDES_RndPlain;
+        private TextBox SDES_CipherText;
+        private TextBox SDES_KeyTextBox;
+        private TextBox SDES_PlainText;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private GroupBox groupBox4;
+        private Button DES_Encrypt;
+        private Button DES_RndKey;
+        private Button DES_RndPlain;
+        private TextBox DES_CipherText;
+        private TextBox DES_KeyTextBox;
+        private TextBox DES_PlainText;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private GroupBox groupBox6;
+        private TextBox textBox8;
     }
 }
