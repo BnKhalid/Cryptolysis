@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            groupBox3 = new GroupBox();
+            textBox1 = new TextBox();
             groupBox2 = new GroupBox();
             RSA_Decrypt = new Button();
             RSA_Encrypt = new Button();
@@ -56,6 +58,7 @@
             tabPage6 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -77,6 +80,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(groupBox3);
             tabPage1.Controls.Add(groupBox2);
             tabPage1.Controls.Add(groupBox1);
             tabPage1.Location = new Point(4, 22);
@@ -86,6 +90,28 @@
             tabPage1.TabIndex = 0;
             tabPage1.Text = "RSA";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(textBox1);
+            groupBox3.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox3.Location = new Point(9, 349);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(334, 108);
+            groupBox3.TabIndex = 2;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Description";
+            // 
+            // textBox1
+            // 
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textBox1.Location = new Point(7, 19);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(321, 83);
+            textBox1.TabIndex = 0;
+            textBox1.Text = resources.GetString("textBox1.Text");
             // 
             // groupBox2
             // 
@@ -99,7 +125,7 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label4);
             groupBox2.Font = new Font("Microsoft Sans Serif", 9.75F);
-            groupBox2.Location = new Point(10, 178);
+            groupBox2.Location = new Point(9, 176);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(334, 153);
             groupBox2.TabIndex = 1;
@@ -207,7 +233,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Microsoft Sans Serif", 9.75F);
-            groupBox1.Location = new Point(10, 4);
+            groupBox1.Location = new Point(9, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(334, 153);
             groupBox1.TabIndex = 0;
@@ -346,6 +372,8 @@
             Text = "Cryptolysis";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
@@ -380,5 +408,7 @@
         private Button RSA_RndKey;
         private Button RSA_Decrypt;
         private Button RSA_Encrypt;
+        private GroupBox groupBox3;
+        private TextBox textBox1;
     }
 }
