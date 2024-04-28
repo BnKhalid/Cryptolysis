@@ -1,3 +1,4 @@
+using Cryptolysis.Algorithms.DES;
 using Cryptolysis.Algorithms.RSA;
 
 namespace Cryptolysis;
@@ -5,10 +6,14 @@ namespace Cryptolysis;
 public partial class MainForm : Form
 {
     readonly RSA _rsa;
+    readonly Random _rnd;
+    readonly DES _des;
     public MainForm()
     {
         InitializeComponent();
+        _rnd = new Random();
         _rsa = new RSA() { Key = new(0, 0) };
+        _des = new DES() { Key = new() };
     }
 
     #region RSA
@@ -57,6 +62,36 @@ public partial class MainForm : Form
     {
         _rsa.Key = new();
         RSA_KeyTextBox.Text = $"{_rsa.Key.E}, {_rsa.Key.N}";
+    }
+    #endregion
+    #region DES
+    private void DES_Rnd_Click(object sender, EventArgs e)
+    {
+        string val = _rnd.Get64().ToString("X16");
+
+        string? name = sender is Button button ? button.Name : null;
+
+        switch (name)
+        {
+            case nameof(DES_RndKey):
+                DES_KeyTextBox.Text = val;
+                _des.Key = new(val);
+                break;
+            case nameof(DES_RndPlain):
+                DES_PlainText.Text = val;
+                break;
+        }
+    }
+
+    private void DES_TextChanged(object sender, EventArgs e)
+    {
+        DES_Encrypt.Enabled =
+            !string.IsNullOrEmpty(DES_PlainText.Text) && !string.IsNullOrEmpty(DES_KeyTextBox.Text);
+    }
+
+    private void DES_Encrypt_Click(object sender, EventArgs e)
+    {
+        DES_CipherText.Text = _des.Encrypt(DES_PlainText.Text);
     }
     #endregion
 
