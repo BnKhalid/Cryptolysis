@@ -1,9 +1,8 @@
 ﻿using System.Numerics;
-using Cryptolysis.Algorithms.Interfaces;
 
 namespace Cryptolysis.Algorithms.DES;
 
-internal class DES : IAlgorithm
+internal class DES
 {
     public required DES_Key Key { get; set; }
 
@@ -13,8 +12,8 @@ internal class DES : IAlgorithm
         plain = plain.Permute(DES_Utils.ip, 64);
         var (l, r) = plain.Split(32);
 
-        var tmpKey = Key.HexNumber.Permute(DES_Utils.pc1, 56);
-        var (c, d) = tmpKey.Split(28);
+        var key = Key.HexNumber.Permute(DES_Utils.pc1, 64);
+        var (c, d) = key.Split(28);
 
         for (int i = 1; i <= 16; i++)
         {
@@ -30,7 +29,7 @@ internal class DES : IAlgorithm
             }
 
             var k = c.Merge(d, 56);
-            k.Permute(DES_Utils.pc2, 48);
+            k.Permute(DES_Utils.pc2, 56);
 
             var tmpR = r;
             r = l ^ DES_Utils.F(r, k);
@@ -41,10 +40,5 @@ internal class DES : IAlgorithm
         ciphered.Permute(DES_Utils.ipInverse, 64);
 
         return ciphered.ToString("X16");
-    }
-
-    public string Decrypt(string cipherText)
-    {
-        throw new NotImplementedException();
     }
 }

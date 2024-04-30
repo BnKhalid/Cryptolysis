@@ -1,9 +1,8 @@
 ﻿using System.Numerics;
-using Cryptolysis.Algorithms.Interfaces;
 
 namespace Cryptolysis.Algorithms.DES;
 
-internal class DES_Key : IKey
+internal class DES_Key
 {
     public BigInteger HexNumber { get; set; }
     public DES_Key()
@@ -14,10 +13,5 @@ internal class DES_Key : IKey
     public DES_Key(string hex)
     {
         HexNumber = BigInteger.Parse(hex, System.Globalization.NumberStyles.HexNumber);
-    }
-
-    public bool IsValid()
-    {
-        throw new NotImplementedException();
     }
 }

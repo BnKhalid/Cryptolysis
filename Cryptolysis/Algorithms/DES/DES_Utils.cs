@@ -142,48 +142,31 @@ static class DES_Utils
         return ((HexNumber << shift) | (HexNumber >> (size - shift))) & ((1L << size) - 1);
     }
 
-    public static BigInteger Permute(this BigInteger HexNumber, int[] table, int resultSize)
+    public static BigInteger Permute(this BigInteger HexNumber, int[] table, int inputSize)
     {
         BigInteger permuted = 0;
+        int resultSize = table.Length;
         for (int i = 0, j = resultSize - 1; i < resultSize; i++, j--)
         {
-            if ((HexNumber & (1L << (table[i] - 1))) != 0)
+            if ((HexNumber & (1L << (inputSize - table[i]))) != 0)
                 permuted |= 1L << j;
         }
         return permuted;
     }
 
-    public static BigInteger Merge(this BigInteger left, BigInteger right, int size)
+    public static BigInteger Merge(this BigInteger left, BigInteger right, int resultSize)
     {
-        BigInteger merged = 0;
-        for (int i = 0; i < size / 2; i++)
-        {
-            if ((left & (1L << i)) != 0)
-                merged |= 1L << (i + size / 2);
-
-            if ((right & (1L << i)) != 0)
-                merged |= 1L << i;
-        }
-        return merged;
+        return (left << (resultSize / 2)) | right;
     }
 
-    public static (BigInteger, BigInteger) Split(this BigInteger HexNumber, int size)
+    public static (BigInteger, BigInteger) Split(this BigInteger HexNumber, int resultSize)
     {
-        return (HexNumber >> size, HexNumber & ((1L << size) - 1));
-    }
-
-    public static BigInteger Expand(this BigInteger right)
-    {
-        BigInteger expanded = 0;
-        for (int i = 0, j = 47; i < 48; i++, j--)
-            if ((right & (1L << (ep[i] - 1))) != 0)
-                expanded |= 1L << j;
-        return expanded;
+        return (HexNumber >> resultSize, HexNumber & ((1L << resultSize) - 1));
     }
 
     public static BigInteger F(BigInteger right, BigInteger key)
     {
-        var expanded = right.Expand();
+        var expanded = right.Permute(ep, 32);
         var xor = expanded ^ key;
         BigInteger sBoxed = 0;
         for (int i = 0; i < 8; i++)

@@ -1,5 +1,7 @@
+using Cryptolysis.Algorithms.AES;
 using Cryptolysis.Algorithms.DES;
 using Cryptolysis.Algorithms.RSA;
+using Cryptolysis.Algorithms.SDES;
 
 namespace Cryptolysis;
 
@@ -8,12 +10,17 @@ public partial class MainForm : Form
     readonly RSA _rsa;
     readonly Random _rnd;
     readonly DES _des;
+    readonly SDES _sdes;
+    readonly AES _aes;
+
     public MainForm()
     {
         InitializeComponent();
         _rnd = new Random();
         _rsa = new RSA() { Key = new(0, 0) };
         _des = new DES() { Key = new() };
+        _sdes = new SDES() { Key = new() };
+        _aes = new AES() { Key = new() };
     }
 
     #region RSA
@@ -94,6 +101,69 @@ public partial class MainForm : Form
         DES_CipherText.Text = _des.Encrypt(DES_PlainText.Text);
     }
     #endregion
+    #region SDES
+    private void SDES_Rnd_Click(object sender, EventArgs e)
+    {
+        string val;
+
+        string? name = sender is Button button ? button.Name : null;
+
+        switch (name)
+        {
+            case nameof(SDES_RndKey):
+                val = _rnd.Next(1024).ToString("X");
+                SDES_KeyTextBox.Text = val;
+                _sdes.Key = new(val);
+                break;
+            case nameof(SDES_RndPlain):
+                val = _rnd.Next(256).ToString("X2");
+                SDES_PlainText.Text = val;
+                break;
+        }
+    }
+
+    private void SDES_TextChanged(object sender, EventArgs e)
+    {
+        SDES_Encrypt.Enabled =
+            !string.IsNullOrEmpty(SDES_PlainText.Text) && !string.IsNullOrEmpty(SDES_KeyTextBox.Text);
+    }
+
+    private void SDES_Encrypt_Click(object sender, EventArgs e)
+    {
+        SDES_CipherText.Text = _sdes.Encrypt(SDES_PlainText.Text);
+    }
+    #endregion
+
+    private void AES_Rnd_Click(object sender, EventArgs e)
+    {
+        string? name = sender is Button button ? button.Name : null;
+
+        switch (name)
+        {
+            case nameof(AES_RndKey):
+                _aes.Key = new();
+                AES_KeyTextBox.Text = _aes.Key.ToString();
+                AES_CurrentKey.Text = string.Empty;
+                break;
+            case nameof(AES_RndPlain):
+                AES_PlainText.Text = _aes.GenRndState();
+                break;
+        }
+    }
+
+    private void AES_TextChanged(object sender, EventArgs e)
+    {
+        AES_Encrypt.Enabled =
+            !string.IsNullOrEmpty(AES_PlainText.Text) && !string.IsNullOrEmpty(AES_KeyTextBox.Text);
+
+        AES_NxtKey.Enabled =
+            !string.IsNullOrEmpty(AES_KeyTextBox.Text);
+    }
+
+    private void AES_Encrypt_Click(object sender, EventArgs e)
+    {
+        AES_CipherText.Text = _aes.Encrypt();
+    }
 
     private void OnDigit_KeyPress(object sender, KeyPressEventArgs e)
     {
@@ -105,5 +175,19 @@ public partial class MainForm : Form
     {
         if ((!char.IsLetter(e.KeyChar) && e.KeyChar != '\b'))
             e.Handled = true;
+    }
+
+    private void AES_NxtKey_Click(object sender, EventArgs e)
+    {
+        AES_Encrypt.Enabled = false;
+        AES_CipherText.Text = string.Empty;
+        _aes.Key.Next();
+        if (_aes.Key.IterationIndex >= 11)
+        {
+            AES_KeyTextBox.Text = string.Empty;
+            AES_CurrentKey.Text = string.Empty;
+        }
+        else
+            AES_CurrentKey.Text = _aes.Key.ToString();
     }
 }

@@ -1,9 +1,8 @@
-﻿using Cryptolysis.Algorithms.Interfaces;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace Cryptolysis.Algorithms.RSA;
 
-internal class RSA_Key : IKey
+internal class RSA_Key
 {
     public BigInteger N { get; private set; } = 0;
     public BigInteger O { get; private set; } = 0;

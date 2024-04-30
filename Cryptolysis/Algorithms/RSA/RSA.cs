@@ -1,9 +1,8 @@
-﻿using Cryptolysis.Algorithms.Interfaces;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace Cryptolysis.Algorithms.RSA;
 
-internal class RSA : IAlgorithm
+internal class RSA
 {
     public required RSA_Key Key { get; set; }
 

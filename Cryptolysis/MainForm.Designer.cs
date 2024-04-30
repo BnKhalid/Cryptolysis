@@ -75,6 +75,22 @@
             label8 = new Label();
             label9 = new Label();
             tabPage4 = new TabPage();
+            groupBox9 = new GroupBox();
+            textBox9 = new TextBox();
+            groupBox8 = new GroupBox();
+            AES_Encrypt = new Button();
+            AES_RndPlain = new Button();
+            AES_CipherText = new TextBox();
+            AES_PlainText = new TextBox();
+            label17 = new Label();
+            label16 = new Label();
+            groupBox7 = new GroupBox();
+            AES_NxtKey = new Button();
+            AES_RndKey = new Button();
+            AES_CurrentKey = new TextBox();
+            AES_KeyTextBox = new TextBox();
+            label14 = new Label();
+            label15 = new Label();
             tabPage5 = new TabPage();
             tabPage6 = new TabPage();
             tabControl1.SuspendLayout();
@@ -86,6 +102,10 @@
             groupBox6.SuspendLayout();
             groupBox5.SuspendLayout();
             groupBox4.SuspendLayout();
+            tabPage4.SuspendLayout();
+            groupBox9.SuspendLayout();
+            groupBox8.SuspendLayout();
+            groupBox7.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -397,6 +417,7 @@
             SDES_Encrypt.TabIndex = 5;
             SDES_Encrypt.Text = "Encrypt";
             SDES_Encrypt.UseVisualStyleBackColor = true;
+            SDES_Encrypt.Click += SDES_Encrypt_Click;
             // 
             // SDES_RndKey
             // 
@@ -406,6 +427,7 @@
             SDES_RndKey.TabIndex = 4;
             SDES_RndKey.Text = "Random Key";
             SDES_RndKey.UseVisualStyleBackColor = true;
+            SDES_RndKey.Click += SDES_Rnd_Click;
             // 
             // SDES_RndPlain
             // 
@@ -415,6 +437,7 @@
             SDES_RndPlain.TabIndex = 3;
             SDES_RndPlain.Text = "Random Plain";
             SDES_RndPlain.UseVisualStyleBackColor = true;
+            SDES_RndPlain.Click += SDES_Rnd_Click;
             // 
             // SDES_CipherText
             // 
@@ -433,6 +456,7 @@
             SDES_KeyTextBox.ReadOnly = true;
             SDES_KeyTextBox.Size = new Size(121, 22);
             SDES_KeyTextBox.TabIndex = 1;
+            SDES_KeyTextBox.TextChanged += SDES_TextChanged;
             // 
             // SDES_PlainText
             // 
@@ -442,6 +466,7 @@
             SDES_PlainText.ReadOnly = true;
             SDES_PlainText.Size = new Size(121, 22);
             SDES_PlainText.TabIndex = 0;
+            SDES_PlainText.TextChanged += SDES_TextChanged;
             // 
             // label10
             // 
@@ -584,12 +609,188 @@
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(groupBox9);
+            tabPage4.Controls.Add(groupBox8);
+            tabPage4.Controls.Add(groupBox7);
             tabPage4.Location = new Point(4, 22);
             tabPage4.Name = "tabPage4";
             tabPage4.Size = new Size(353, 461);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "AES";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox9
+            // 
+            groupBox9.Controls.Add(textBox9);
+            groupBox9.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox9.Location = new Point(9, 341);
+            groupBox9.Name = "groupBox9";
+            groupBox9.Size = new Size(334, 108);
+            groupBox9.TabIndex = 7;
+            groupBox9.TabStop = false;
+            groupBox9.Text = "Description";
+            // 
+            // textBox9
+            // 
+            textBox9.BorderStyle = BorderStyle.None;
+            textBox9.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textBox9.Location = new Point(7, 19);
+            textBox9.Multiline = true;
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(321, 83);
+            textBox9.TabIndex = 0;
+            // 
+            // groupBox8
+            // 
+            groupBox8.Controls.Add(AES_Encrypt);
+            groupBox8.Controls.Add(AES_RndPlain);
+            groupBox8.Controls.Add(AES_CipherText);
+            groupBox8.Controls.Add(AES_PlainText);
+            groupBox8.Controls.Add(label17);
+            groupBox8.Controls.Add(label16);
+            groupBox8.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox8.Location = new Point(9, 169);
+            groupBox8.Name = "groupBox8";
+            groupBox8.Size = new Size(334, 153);
+            groupBox8.TabIndex = 6;
+            groupBox8.TabStop = false;
+            groupBox8.Text = "AES Encryption (128-bit Key)";
+            // 
+            // AES_Encrypt
+            // 
+            AES_Encrypt.Enabled = false;
+            AES_Encrypt.Location = new Point(187, 109);
+            AES_Encrypt.Name = "AES_Encrypt";
+            AES_Encrypt.Size = new Size(127, 23);
+            AES_Encrypt.TabIndex = 5;
+            AES_Encrypt.Text = "Encrypt";
+            AES_Encrypt.UseVisualStyleBackColor = true;
+            AES_Encrypt.Click += AES_Encrypt_Click;
+            // 
+            // AES_RndPlain
+            // 
+            AES_RndPlain.Location = new Point(20, 114);
+            AES_RndPlain.Name = "AES_RndPlain";
+            AES_RndPlain.Size = new Size(127, 23);
+            AES_RndPlain.TabIndex = 3;
+            AES_RndPlain.Text = "Random Plain";
+            AES_RndPlain.UseVisualStyleBackColor = true;
+            AES_RndPlain.Click += AES_Rnd_Click;
+            // 
+            // AES_CipherText
+            // 
+            AES_CipherText.Cursor = Cursors.IBeam;
+            AES_CipherText.Location = new Point(193, 65);
+            AES_CipherText.Name = "AES_CipherText";
+            AES_CipherText.ReadOnly = true;
+            AES_CipherText.Size = new Size(121, 22);
+            AES_CipherText.TabIndex = 2;
+            // 
+            // AES_PlainText
+            // 
+            AES_PlainText.Cursor = Cursors.IBeam;
+            AES_PlainText.Location = new Point(193, 21);
+            AES_PlainText.Name = "AES_PlainText";
+            AES_PlainText.ReadOnly = true;
+            AES_PlainText.Size = new Size(121, 22);
+            AES_PlainText.TabIndex = 0;
+            AES_PlainText.TextChanged += AES_TextChanged;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(20, 72);
+            label17.Name = "label17";
+            label17.Size = new Size(75, 16);
+            label17.TabIndex = 2;
+            label17.Text = "Cipher Text";
+            label17.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(20, 30);
+            label16.Name = "label16";
+            label16.Size = new Size(66, 16);
+            label16.TabIndex = 0;
+            label16.Text = "Plain Text";
+            label16.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // groupBox7
+            // 
+            groupBox7.Controls.Add(AES_NxtKey);
+            groupBox7.Controls.Add(AES_RndKey);
+            groupBox7.Controls.Add(AES_CurrentKey);
+            groupBox7.Controls.Add(AES_KeyTextBox);
+            groupBox7.Controls.Add(label14);
+            groupBox7.Controls.Add(label15);
+            groupBox7.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox7.Location = new Point(9, 12);
+            groupBox7.Name = "groupBox7";
+            groupBox7.Size = new Size(334, 138);
+            groupBox7.TabIndex = 3;
+            groupBox7.TabStop = false;
+            groupBox7.Text = "128-Key Generation";
+            // 
+            // AES_NxtKey
+            // 
+            AES_NxtKey.Enabled = false;
+            AES_NxtKey.Location = new Point(187, 94);
+            AES_NxtKey.Name = "AES_NxtKey";
+            AES_NxtKey.Size = new Size(127, 23);
+            AES_NxtKey.TabIndex = 5;
+            AES_NxtKey.Text = "Next Key";
+            AES_NxtKey.UseVisualStyleBackColor = true;
+            AES_NxtKey.Click += AES_NxtKey_Click;
+            // 
+            // AES_RndKey
+            // 
+            AES_RndKey.Location = new Point(20, 94);
+            AES_RndKey.Name = "AES_RndKey";
+            AES_RndKey.Size = new Size(127, 23);
+            AES_RndKey.TabIndex = 3;
+            AES_RndKey.Text = "Random Key";
+            AES_RndKey.UseVisualStyleBackColor = true;
+            AES_RndKey.Click += AES_Rnd_Click;
+            // 
+            // AES_CurrentKey
+            // 
+            AES_CurrentKey.Cursor = Cursors.IBeam;
+            AES_CurrentKey.Location = new Point(193, 59);
+            AES_CurrentKey.Name = "AES_CurrentKey";
+            AES_CurrentKey.ReadOnly = true;
+            AES_CurrentKey.Size = new Size(121, 22);
+            AES_CurrentKey.TabIndex = 1;
+            // 
+            // AES_KeyTextBox
+            // 
+            AES_KeyTextBox.Cursor = Cursors.IBeam;
+            AES_KeyTextBox.Location = new Point(193, 22);
+            AES_KeyTextBox.Name = "AES_KeyTextBox";
+            AES_KeyTextBox.ReadOnly = true;
+            AES_KeyTextBox.Size = new Size(121, 22);
+            AES_KeyTextBox.TabIndex = 0;
+            AES_KeyTextBox.TextChanged += AES_TextChanged;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(20, 60);
+            label14.Name = "label14";
+            label14.Size = new Size(75, 16);
+            label14.TabIndex = 1;
+            label14.Text = "Current Key";
+            label14.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(20, 23);
+            label15.Name = "label15";
+            label15.Size = new Size(63, 16);
+            label15.TabIndex = 0;
+            label15.Text = "Initial Key";
+            label15.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // tabPage5
             // 
@@ -638,6 +839,13 @@
             groupBox5.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            tabPage4.ResumeLayout(false);
+            groupBox9.ResumeLayout(false);
+            groupBox9.PerformLayout();
+            groupBox8.ResumeLayout(false);
+            groupBox8.PerformLayout();
+            groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -691,5 +899,21 @@
         private Label label9;
         private GroupBox groupBox6;
         private TextBox textBox8;
+        private GroupBox groupBox7;
+        private Button AES_NxtKey;
+        private Button AES_RndKey;
+        private TextBox AES_CurrentKey;
+        private TextBox AES_KeyTextBox;
+        private Label label14;
+        private Label label15;
+        private GroupBox groupBox9;
+        private TextBox textBox9;
+        private GroupBox groupBox8;
+        private Button AES_Encrypt;
+        private Button AES_RndPlain;
+        private TextBox AES_CipherText;
+        private TextBox AES_PlainText;
+        private Label label17;
+        private Label label16;
     }
 }
