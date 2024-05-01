@@ -1,6 +1,7 @@
 using Cryptolysis.Algorithms.AES;
 using Cryptolysis.Algorithms.DES;
 using Cryptolysis.Algorithms.Diffie_Hellman;
+using Cryptolysis.Algorithms.MD5;
 using Cryptolysis.Algorithms.RSA;
 using Cryptolysis.Algorithms.SDES;
 using System.Numerics;
@@ -15,6 +16,7 @@ public partial class MainForm : Form
     readonly SDES _sdes;
     readonly AES _aes;
     readonly Diffie_Hellman _diffie_hellman;
+    readonly MD5 _md5;
 
     public MainForm()
     {
@@ -25,6 +27,7 @@ public partial class MainForm : Form
         _sdes = new() { Key = new() };
         _aes = new() { Key = new() };
         _diffie_hellman = new();
+        _md5 = new();
     }
 
     #region RSA
@@ -220,15 +223,26 @@ public partial class MainForm : Form
             : string.Empty;
     }
     #endregion
+    #region MD5
+    private void MD5_Message_TextChanged(object sender, EventArgs e)
+    {
+        MD5_Hash.Enabled = !string.IsNullOrEmpty(MD5_Message.Text);
+    }
+
+    private void MD5_Hash_Click(object sender, EventArgs e)
+    {
+        MD5_Code.Text = _md5.Hash(MD5_Message.Text);
+    }
+
+    private void MD5_RndMsg_Click(object sender, EventArgs e)
+    {
+        MD5_Message.Text = _rnd.Next((int)1e9).ToString("X");
+    }
+    #endregion
+
     private void OnDigit_KeyPress(object sender, KeyPressEventArgs e)
     {
         if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-            e.Handled = true;
-    }
-
-    private void OnChar_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        if ((!char.IsLetter(e.KeyChar) && e.KeyChar != '\b'))
             e.Handled = true;
     }
 }

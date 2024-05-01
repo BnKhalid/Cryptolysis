@@ -91,7 +91,6 @@
             AES_KeyTextBox = new TextBox();
             label14 = new Label();
             label15 = new Label();
-            tabPage5 = new TabPage();
             tabPage6 = new TabPage();
             groupBox12 = new GroupBox();
             textBox11 = new TextBox();
@@ -112,6 +111,16 @@
             label20 = new Label();
             DH_PrivateA = new TextBox();
             label13 = new Label();
+            tabPage5 = new TabPage();
+            groupBox14 = new GroupBox();
+            textBox2 = new TextBox();
+            groupBox13 = new GroupBox();
+            MD5_RndMsg = new Button();
+            MD5_Hash = new Button();
+            MD5_Code = new TextBox();
+            MD5_Message = new TextBox();
+            label25 = new Label();
+            label26 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -129,6 +138,9 @@
             groupBox12.SuspendLayout();
             groupBox10.SuspendLayout();
             groupBox11.SuspendLayout();
+            tabPage5.SuspendLayout();
+            groupBox14.SuspendLayout();
+            groupBox13.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -136,8 +148,8 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage4);
-            tabControl1.Controls.Add(tabPage5);
             tabControl1.Controls.Add(tabPage6);
+            tabControl1.Controls.Add(tabPage5);
             tabControl1.ItemSize = new Size(88, 18);
             tabControl1.Location = new Point(11, 12);
             tabControl1.Name = "tabControl1";
@@ -816,15 +828,6 @@
             label15.Text = "Initial Key";
             label15.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // tabPage5
-            // 
-            tabPage5.Location = new Point(4, 22);
-            tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(353, 461);
-            tabPage5.TabIndex = 4;
-            tabPage5.Text = "MD5";
-            tabPage5.UseVisualStyleBackColor = true;
-            // 
             // tabPage6
             // 
             tabPage6.Controls.Add(groupBox12);
@@ -1043,6 +1046,115 @@
             label13.Text = "Public Key B";
             label13.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // tabPage5
+            // 
+            tabPage5.Controls.Add(groupBox14);
+            tabPage5.Controls.Add(groupBox13);
+            tabPage5.Location = new Point(4, 22);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new Size(353, 461);
+            tabPage5.TabIndex = 4;
+            tabPage5.Text = "MD5";
+            tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox14
+            // 
+            groupBox14.Controls.Add(textBox2);
+            groupBox14.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox14.Location = new Point(9, 234);
+            groupBox14.Name = "groupBox14";
+            groupBox14.Size = new Size(334, 190);
+            groupBox14.TabIndex = 6;
+            groupBox14.TabStop = false;
+            groupBox14.Text = "Description";
+            // 
+            // textBox2
+            // 
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textBox2.Location = new Point(7, 21);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(321, 163);
+            textBox2.TabIndex = 0;
+            textBox2.Text = resources.GetString("textBox2.Text");
+            // 
+            // groupBox13
+            // 
+            groupBox13.Controls.Add(MD5_RndMsg);
+            groupBox13.Controls.Add(MD5_Hash);
+            groupBox13.Controls.Add(MD5_Code);
+            groupBox13.Controls.Add(MD5_Message);
+            groupBox13.Controls.Add(label25);
+            groupBox13.Controls.Add(label26);
+            groupBox13.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox13.Location = new Point(9, 37);
+            groupBox13.Name = "groupBox13";
+            groupBox13.Size = new Size(334, 153);
+            groupBox13.TabIndex = 1;
+            groupBox13.TabStop = false;
+            groupBox13.Text = "Hash Function";
+            // 
+            // MD5_RndMsg
+            // 
+            MD5_RndMsg.Location = new Point(20, 111);
+            MD5_RndMsg.Name = "MD5_RndMsg";
+            MD5_RndMsg.Size = new Size(135, 23);
+            MD5_RndMsg.TabIndex = 4;
+            MD5_RndMsg.Text = "Random Message";
+            MD5_RndMsg.UseVisualStyleBackColor = true;
+            MD5_RndMsg.Click += MD5_RndMsg_Click;
+            // 
+            // MD5_Hash
+            // 
+            MD5_Hash.Enabled = false;
+            MD5_Hash.Location = new Point(179, 111);
+            MD5_Hash.Name = "MD5_Hash";
+            MD5_Hash.Size = new Size(135, 23);
+            MD5_Hash.TabIndex = 3;
+            MD5_Hash.Text = "Hash";
+            MD5_Hash.UseVisualStyleBackColor = true;
+            MD5_Hash.Click += MD5_Hash_Click;
+            // 
+            // MD5_Code
+            // 
+            MD5_Code.Cursor = Cursors.IBeam;
+            MD5_Code.Location = new Point(144, 70);
+            MD5_Code.Name = "MD5_Code";
+            MD5_Code.ReadOnly = true;
+            MD5_Code.Size = new Size(170, 22);
+            MD5_Code.TabIndex = 1;
+            // 
+            // MD5_Message
+            // 
+            MD5_Message.Cursor = Cursors.IBeam;
+            MD5_Message.Location = new Point(144, 27);
+            MD5_Message.Name = "MD5_Message";
+            MD5_Message.Size = new Size(170, 22);
+            MD5_Message.TabIndex = 0;
+            MD5_Message.TextChanged += MD5_Message_TextChanged;
+            MD5_Message.KeyPress += OnDigit_KeyPress;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Location = new Point(20, 72);
+            label25.Name = "label25";
+            label25.Size = new Size(75, 16);
+            label25.TabIndex = 1;
+            label25.Text = "Hash Code";
+            label25.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new Point(20, 30);
+            label26.Name = "label26";
+            label26.Size = new Size(64, 16);
+            label26.TabIndex = 0;
+            label26.Text = "Message";
+            label26.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
@@ -1086,6 +1198,11 @@
             groupBox10.PerformLayout();
             groupBox11.ResumeLayout(false);
             groupBox11.PerformLayout();
+            tabPage5.ResumeLayout(false);
+            groupBox14.ResumeLayout(false);
+            groupBox14.PerformLayout();
+            groupBox13.ResumeLayout(false);
+            groupBox13.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1174,5 +1291,14 @@
         private Label label13;
         private GroupBox groupBox12;
         private TextBox textBox11;
+        private GroupBox groupBox13;
+        private Button MD5_Hash;
+        private TextBox MD5_Code;
+        private TextBox MD5_Message;
+        private Label label25;
+        private Label label26;
+        private GroupBox groupBox14;
+        private TextBox textBox2;
+        private Button MD5_RndMsg;
     }
 }

@@ -130,6 +130,10 @@
   <data name="textBox11.Text" xml:space="preserve">
     <value>The Diffie-Hellman key exchange is a mathematical method for exchanging keys over a public channel. It was named after Whitfield Diffie and Martin Hellman. This method allows two parties with no prior knowledge of each other to establish a shared secret key, which can is used to encrypt communications.</value>
   </data>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>MD5, or Message-Digest Algorithm 5, is a widely used cryptographic hash function that produces a 128-bit hash value. 
+MD5 can be used as a checksum to verify data integrity against unintentional corruption. However, it’s no longer considered secure for many applications due to its vulnerabilities. Despite this, it remains suitable for non-cryptographic purposes, such as determining the partition for a particular key in a partitioned database. </value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
