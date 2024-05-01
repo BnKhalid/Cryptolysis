@@ -124,6 +124,12 @@
   <data name="textBox8.Text" xml:space="preserve">
     <value>DES (Data Encryption Standard) is a historic symmetric-key block cipher algorithm with a 56-bit key length. It encrypts data in 64-bit blocks, producing 64-bit ciphertext. DES employs substitution and transposition techniques across 16 rounds.</value>
   </data>
+  <data name="textBox9.Text" xml:space="preserve">
+    <value>AES (The Advanced Encryption Standard), also known by its original name Rijndael, is a specification for the encryption of electronic data. It’s a symmetric-key algorithm, meaning the same key is used for both encrypting and decrypting the data. AES operates on a block size of 128 bits and supports key sizes of 128, 192, and 256 bits.</value>
+  </data>
+  <data name="textBox11.Text" xml:space="preserve">
+    <value>The Diffie-Hellman key exchange is a mathematical method for exchanging keys over a public channel. It was named after Whitfield Diffie and Martin Hellman. This method allows two parties with no prior knowledge of each other to establish a shared secret key, which can is used to encrypt communications.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -1,7 +1,9 @@
 using Cryptolysis.Algorithms.AES;
 using Cryptolysis.Algorithms.DES;
+using Cryptolysis.Algorithms.Diffie_Hellman;
 using Cryptolysis.Algorithms.RSA;
 using Cryptolysis.Algorithms.SDES;
+using System.Numerics;
 
 namespace Cryptolysis;
 
@@ -12,15 +14,17 @@ public partial class MainForm : Form
     readonly DES _des;
     readonly SDES _sdes;
     readonly AES _aes;
+    readonly Diffie_Hellman _diffie_hellman;
 
     public MainForm()
     {
         InitializeComponent();
-        _rnd = new Random();
-        _rsa = new RSA() { Key = new(0, 0) };
-        _des = new DES() { Key = new() };
-        _sdes = new SDES() { Key = new() };
-        _aes = new AES() { Key = new() };
+        _rnd = new();
+        _rsa = new() { Key = new(0, 0) };
+        _des = new() { Key = new() };
+        _sdes = new() { Key = new() };
+        _aes = new() { Key = new() };
+        _diffie_hellman = new();
     }
 
     #region RSA
@@ -133,7 +137,7 @@ public partial class MainForm : Form
         SDES_CipherText.Text = _sdes.Encrypt(SDES_PlainText.Text);
     }
     #endregion
-
+    #region AES
     private void AES_Rnd_Click(object sender, EventArgs e)
     {
         string? name = sender is Button button ? button.Name : null;
@@ -165,18 +169,6 @@ public partial class MainForm : Form
         AES_CipherText.Text = _aes.Encrypt();
     }
 
-    private void OnDigit_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-            e.Handled = true;
-    }
-
-    private void OnChar_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        if ((!char.IsLetter(e.KeyChar) && e.KeyChar != '\b'))
-            e.Handled = true;
-    }
-
     private void AES_NxtKey_Click(object sender, EventArgs e)
     {
         AES_Encrypt.Enabled = false;
@@ -189,5 +181,54 @@ public partial class MainForm : Form
         }
         else
             AES_CurrentKey.Text = _aes.Key.ToString();
+    }
+    #endregion
+    #region Diffie-Hellman
+    private void DH_GeneratePG_Click(object sender, EventArgs e)
+    {
+        var (tp, th) = _diffie_hellman.GeneratePG();
+        (DH_P.Text, DH_G.Text) = (tp.ToString(), th.ToString());
+
+        DH_PrivateA.ReadOnly = DH_PrivateB.ReadOnly = false;
+    }
+
+    private void DH_TextChanged(object sender, EventArgs e)
+    {
+        bool a = !string.IsNullOrEmpty(DH_PrivateA.Text), b = !string.IsNullOrEmpty(DH_PrivateB.Text);
+
+        if (!string.IsNullOrEmpty(DH_G.Text) && !string.IsNullOrEmpty(DH_P.Text))
+        {
+            if (a)
+            {
+                _diffie_hellman.A = BigInteger.Parse(DH_PrivateA.Text);
+                DH_PublicA.Text = _diffie_hellman.ComputePrivateKey(_diffie_hellman.A).ToString();
+            }
+            else
+                DH_PublicA.Text = string.Empty;
+
+            if (b)
+            {
+                _diffie_hellman.B = BigInteger.Parse(DH_PrivateB.Text);
+                DH_PublicB.Text = _diffie_hellman.ComputePrivateKey(_diffie_hellman.B).ToString();
+            }
+            else
+                DH_PublicB.Text = string.Empty;
+        }
+
+        DH_S.Text = a && b
+            ? _diffie_hellman.ComputePrivateKey(_diffie_hellman.A * _diffie_hellman.B).ToString()
+            : string.Empty;
+    }
+    #endregion
+    private void OnDigit_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            e.Handled = true;
+    }
+
+    private void OnChar_KeyPress(object sender, KeyPressEventArgs e)
+    {
+        if ((!char.IsLetter(e.KeyChar) && e.KeyChar != '\b'))
+            e.Handled = true;
     }
 }

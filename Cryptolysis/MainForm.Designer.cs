@@ -93,6 +93,25 @@
             label15 = new Label();
             tabPage5 = new TabPage();
             tabPage6 = new TabPage();
+            groupBox12 = new GroupBox();
+            textBox11 = new TextBox();
+            groupBox10 = new GroupBox();
+            DH_GeneratePG = new Button();
+            DH_G = new TextBox();
+            DH_P = new TextBox();
+            label18 = new Label();
+            label19 = new Label();
+            groupBox11 = new GroupBox();
+            DH_PublicA = new TextBox();
+            label23 = new Label();
+            DH_S = new TextBox();
+            label22 = new Label();
+            DH_PublicB = new TextBox();
+            label21 = new Label();
+            DH_PrivateB = new TextBox();
+            label20 = new Label();
+            DH_PrivateA = new TextBox();
+            label13 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -106,6 +125,10 @@
             groupBox9.SuspendLayout();
             groupBox8.SuspendLayout();
             groupBox7.SuspendLayout();
+            tabPage6.SuspendLayout();
+            groupBox12.SuspendLayout();
+            groupBox10.SuspendLayout();
+            groupBox11.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -623,9 +646,9 @@
             // 
             groupBox9.Controls.Add(textBox9);
             groupBox9.Font = new Font("Microsoft Sans Serif", 9.75F);
-            groupBox9.Location = new Point(9, 341);
+            groupBox9.Location = new Point(9, 302);
             groupBox9.Name = "groupBox9";
-            groupBox9.Size = new Size(334, 108);
+            groupBox9.Size = new Size(334, 146);
             groupBox9.TabIndex = 7;
             groupBox9.TabStop = false;
             groupBox9.Text = "Description";
@@ -637,8 +660,9 @@
             textBox9.Location = new Point(7, 19);
             textBox9.Multiline = true;
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(321, 83);
+            textBox9.Size = new Size(321, 121);
             textBox9.TabIndex = 0;
+            textBox9.Text = resources.GetString("textBox9.Text");
             // 
             // groupBox8
             // 
@@ -649,9 +673,9 @@
             groupBox8.Controls.Add(label17);
             groupBox8.Controls.Add(label16);
             groupBox8.Font = new Font("Microsoft Sans Serif", 9.75F);
-            groupBox8.Location = new Point(9, 169);
+            groupBox8.Location = new Point(9, 161);
             groupBox8.Name = "groupBox8";
-            groupBox8.Size = new Size(334, 153);
+            groupBox8.Size = new Size(334, 130);
             groupBox8.TabIndex = 6;
             groupBox8.TabStop = false;
             groupBox8.Text = "AES Encryption (128-bit Key)";
@@ -659,7 +683,7 @@
             // AES_Encrypt
             // 
             AES_Encrypt.Enabled = false;
-            AES_Encrypt.Location = new Point(187, 109);
+            AES_Encrypt.Location = new Point(187, 91);
             AES_Encrypt.Name = "AES_Encrypt";
             AES_Encrypt.Size = new Size(127, 23);
             AES_Encrypt.TabIndex = 5;
@@ -669,7 +693,7 @@
             // 
             // AES_RndPlain
             // 
-            AES_RndPlain.Location = new Point(20, 114);
+            AES_RndPlain.Location = new Point(20, 91);
             AES_RndPlain.Name = "AES_RndPlain";
             AES_RndPlain.Size = new Size(127, 23);
             AES_RndPlain.TabIndex = 3;
@@ -680,7 +704,7 @@
             // AES_CipherText
             // 
             AES_CipherText.Cursor = Cursors.IBeam;
-            AES_CipherText.Location = new Point(193, 65);
+            AES_CipherText.Location = new Point(193, 56);
             AES_CipherText.Name = "AES_CipherText";
             AES_CipherText.ReadOnly = true;
             AES_CipherText.Size = new Size(121, 22);
@@ -699,7 +723,7 @@
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(20, 72);
+            label17.Location = new Point(20, 56);
             label17.Name = "label17";
             label17.Size = new Size(75, 16);
             label17.TabIndex = 2;
@@ -803,12 +827,221 @@
             // 
             // tabPage6
             // 
+            tabPage6.Controls.Add(groupBox12);
+            tabPage6.Controls.Add(groupBox10);
+            tabPage6.Controls.Add(groupBox11);
             tabPage6.Location = new Point(4, 22);
             tabPage6.Name = "tabPage6";
             tabPage6.Size = new Size(353, 461);
             tabPage6.TabIndex = 5;
             tabPage6.Text = "Diffie-Hellman";
             tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // groupBox12
+            // 
+            groupBox12.Controls.Add(textBox11);
+            groupBox12.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox12.Location = new Point(9, 322);
+            groupBox12.Name = "groupBox12";
+            groupBox12.Size = new Size(334, 131);
+            groupBox12.TabIndex = 5;
+            groupBox12.TabStop = false;
+            groupBox12.Text = "Description";
+            // 
+            // textBox11
+            // 
+            textBox11.BorderStyle = BorderStyle.None;
+            textBox11.Font = new Font("Microsoft Sans Serif", 9.75F);
+            textBox11.Location = new Point(7, 21);
+            textBox11.Multiline = true;
+            textBox11.Name = "textBox11";
+            textBox11.Size = new Size(321, 104);
+            textBox11.TabIndex = 0;
+            textBox11.Text = resources.GetString("textBox11.Text");
+            // 
+            // groupBox10
+            // 
+            groupBox10.Controls.Add(DH_GeneratePG);
+            groupBox10.Controls.Add(DH_G);
+            groupBox10.Controls.Add(DH_P);
+            groupBox10.Controls.Add(label18);
+            groupBox10.Controls.Add(label19);
+            groupBox10.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox10.Location = new Point(9, 3);
+            groupBox10.Name = "groupBox10";
+            groupBox10.Size = new Size(334, 138);
+            groupBox10.TabIndex = 3;
+            groupBox10.TabStop = false;
+            groupBox10.Text = "Publicly shared Information";
+            // 
+            // DH_GeneratePG
+            // 
+            DH_GeneratePG.Location = new Point(88, 93);
+            DH_GeneratePG.Name = "DH_GeneratePG";
+            DH_GeneratePG.Size = new Size(159, 23);
+            DH_GeneratePG.TabIndex = 5;
+            DH_GeneratePG.Text = "Generate Public info";
+            DH_GeneratePG.UseVisualStyleBackColor = true;
+            DH_GeneratePG.Click += DH_GeneratePG_Click;
+            // 
+            // DH_G
+            // 
+            DH_G.Cursor = Cursors.IBeam;
+            DH_G.Location = new Point(193, 60);
+            DH_G.Name = "DH_G";
+            DH_G.ReadOnly = true;
+            DH_G.Size = new Size(121, 22);
+            DH_G.TabIndex = 1;
+            DH_G.TextChanged += DH_TextChanged;
+            // 
+            // DH_P
+            // 
+            DH_P.Cursor = Cursors.IBeam;
+            DH_P.Location = new Point(193, 27);
+            DH_P.Name = "DH_P";
+            DH_P.ReadOnly = true;
+            DH_P.Size = new Size(121, 22);
+            DH_P.TabIndex = 0;
+            DH_P.TextChanged += DH_TextChanged;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(20, 59);
+            label18.Name = "label18";
+            label18.Size = new Size(80, 16);
+            label18.TabIndex = 1;
+            label18.Text = "Generator G";
+            label18.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(20, 30);
+            label19.Name = "label19";
+            label19.Size = new Size(54, 16);
+            label19.TabIndex = 0;
+            label19.Text = "Prime P";
+            label19.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // groupBox11
+            // 
+            groupBox11.Controls.Add(DH_PublicA);
+            groupBox11.Controls.Add(label23);
+            groupBox11.Controls.Add(DH_S);
+            groupBox11.Controls.Add(label22);
+            groupBox11.Controls.Add(DH_PublicB);
+            groupBox11.Controls.Add(label21);
+            groupBox11.Controls.Add(DH_PrivateB);
+            groupBox11.Controls.Add(label20);
+            groupBox11.Controls.Add(DH_PrivateA);
+            groupBox11.Controls.Add(label13);
+            groupBox11.Font = new Font("Microsoft Sans Serif", 9.75F);
+            groupBox11.Location = new Point(9, 147);
+            groupBox11.Name = "groupBox11";
+            groupBox11.Size = new Size(334, 169);
+            groupBox11.TabIndex = 4;
+            groupBox11.TabStop = false;
+            groupBox11.Text = "Combine secret keys ";
+            // 
+            // DH_PublicA
+            // 
+            DH_PublicA.Cursor = Cursors.IBeam;
+            DH_PublicA.Location = new Point(193, 49);
+            DH_PublicA.Name = "DH_PublicA";
+            DH_PublicA.ReadOnly = true;
+            DH_PublicA.Size = new Size(121, 22);
+            DH_PublicA.TabIndex = 23;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(24, 52);
+            label23.Name = "label23";
+            label23.Size = new Size(82, 16);
+            label23.TabIndex = 22;
+            label23.Text = "Public Key A";
+            label23.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // DH_S
+            // 
+            DH_S.Cursor = Cursors.IBeam;
+            DH_S.Location = new Point(193, 133);
+            DH_S.Name = "DH_S";
+            DH_S.ReadOnly = true;
+            DH_S.Size = new Size(121, 22);
+            DH_S.TabIndex = 21;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(24, 136);
+            label22.Name = "label22";
+            label22.Size = new Size(132, 16);
+            label22.TabIndex = 20;
+            label22.Text = "Private Shared Key s";
+            label22.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // DH_PublicB
+            // 
+            DH_PublicB.Cursor = Cursors.IBeam;
+            DH_PublicB.Location = new Point(193, 105);
+            DH_PublicB.Name = "DH_PublicB";
+            DH_PublicB.ReadOnly = true;
+            DH_PublicB.Size = new Size(121, 22);
+            DH_PublicB.TabIndex = 18;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(24, 83);
+            label21.Name = "label21";
+            label21.Size = new Size(85, 16);
+            label21.TabIndex = 19;
+            label21.Text = "2nd Private b";
+            label21.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // DH_PrivateB
+            // 
+            DH_PrivateB.Cursor = Cursors.IBeam;
+            DH_PrivateB.Location = new Point(193, 77);
+            DH_PrivateB.Name = "DH_PrivateB";
+            DH_PrivateB.ReadOnly = true;
+            DH_PrivateB.Size = new Size(121, 22);
+            DH_PrivateB.TabIndex = 16;
+            DH_PrivateB.TextChanged += DH_TextChanged;
+            DH_PrivateB.KeyPress += OnDigit_KeyPress;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(24, 27);
+            label20.Name = "label20";
+            label20.Size = new Size(80, 16);
+            label20.TabIndex = 17;
+            label20.Text = "1st Private a";
+            label20.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // DH_PrivateA
+            // 
+            DH_PrivateA.Cursor = Cursors.IBeam;
+            DH_PrivateA.Location = new Point(193, 21);
+            DH_PrivateA.Name = "DH_PrivateA";
+            DH_PrivateA.ReadOnly = true;
+            DH_PrivateA.Size = new Size(121, 22);
+            DH_PrivateA.TabIndex = 14;
+            DH_PrivateA.TextChanged += DH_TextChanged;
+            DH_PrivateA.KeyPress += OnDigit_KeyPress;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(24, 108);
+            label13.Name = "label13";
+            label13.Size = new Size(82, 16);
+            label13.TabIndex = 15;
+            label13.Text = "Public Key B";
+            label13.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // MainForm
             // 
@@ -846,6 +1079,13 @@
             groupBox8.PerformLayout();
             groupBox7.ResumeLayout(false);
             groupBox7.PerformLayout();
+            tabPage6.ResumeLayout(false);
+            groupBox12.ResumeLayout(false);
+            groupBox12.PerformLayout();
+            groupBox10.ResumeLayout(false);
+            groupBox10.PerformLayout();
+            groupBox11.ResumeLayout(false);
+            groupBox11.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -915,5 +1155,24 @@
         private TextBox AES_PlainText;
         private Label label17;
         private Label label16;
+        private GroupBox groupBox10;
+        private Button DH_GeneratePG;
+        private TextBox DH_G;
+        private TextBox DH_P;
+        private Label label18;
+        private Label label19;
+        private GroupBox groupBox11;
+        private TextBox DH_PublicA;
+        private Label label23;
+        private TextBox DH_S;
+        private Label label22;
+        private TextBox DH_PublicB;
+        private Label label21;
+        private TextBox DH_PrivateB;
+        private Label label20;
+        private TextBox DH_PrivateA;
+        private Label label13;
+        private GroupBox groupBox12;
+        private TextBox textBox11;
     }
 }
